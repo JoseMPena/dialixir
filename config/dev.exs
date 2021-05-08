@@ -1,4 +1,4 @@
 use Mix.Config
 
-config :dialixir, project_id: System.get_env("GOOGLE_CLOUD_PROJECT")
-config :dialixir, google_credentials: System.get_env("GOOGLE_APPLICATION_CREDENTIALS")
+config :dialixir, project_id: System.get_env("PROJECT_ID")
+config :dialixir, google_credentials: System.get_env("APPLICATION_CREDENTIALS")
