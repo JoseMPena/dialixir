@@ -1,10 +1,11 @@
-# dialixir
+# Dialixir (Not [dialyxir](https://hex.pm/packages/dialyxir))
 
-Cliente de Elixir para Dialogflow API v2.
+Very basic client for Dialogflow API v2.
+Based off [flowex](https://github.com/resuelve/flowex)
 
-## Instalación
+## Installation
 
-Añade dialixir a tus dependencias:
+Add dialixir to your mix file:
 
 ```elixir
 def deps do
@@ -14,73 +15,30 @@ def deps do
 end
 ```
 
-### Configurar variables de entorno.
-
-El archivo __.env.dist__ contiene un listado actualizado de las variables de entorno necesarias para el proyecto, se debe crear una copia llamada __.env__
-
-Tambien necesitaras crear un archivo llamando google_credentials.json dentro de la carpeta secrets.
-
-Preguntar al equipo por los valores de las variables de entorno.
-
-Exporta las variables
-
-```shell
-export $(cat .env | xargs)
-```
-
-## Como contribuir.
-
-Pasos para contribuir en el proyecto:
-
-- Hacer un __fork__ del repositorio a nuestra cuenta privada de Github.
-- Clonar nuestro __fork__ en nuestra maquina de trabajo.
-- Crear un remote llamado upstream que apunte hacia el repo de Resuelve.
-
-```shell
-git remote add upstream git@github.com:resuelve/dialixir.git
-```
-
-- Lee las [guías de desarrollo.](https://github.com/resuelve/guias-desarrollo)
-
-## Instalar dependencias
-
+and install dependencies
 ```shell
 mix deps.get
 ```
-## Uso
 
-### dialixir.Service.Agent
+## How to use
+You *must* have the following environment variables in your project
+PROJECT_ID={your Google project ID}
+APPLICATION_CREDENTIALS={path to the json file with project credentials}
 
-Obtiene el agente al que está asociado el project_id. [(📘)](https://dialogflow.com/docs/reference/api-v2/rest/v2/projects/getAgent)
+### Dialixir.Service.Agent
+
+Fetch the agent associated project_id. [getAgent](https://cloud.google.com/dialogflow/es/docs/reference/rest/v2/projects/getAgent)
 
 ```elixir
-get(project)
+get()
 ```
 
-### dialixir.Service.Intents
+### Dialixir.Service.Intents
 
-Lista los de intents de un agente. [(📘)](https://dialogflow.com/docs/reference/api-v2/rest/v2/projects.agent.intents/list)
-
-```elixir
-list(project, language \\ "es", view \\ "INTENT_VIEW_UNSPECIFIED", pageSize \\ 100, token \\ nil)
-```
-
-Obtiene un intent buscando por id. [(📘)](https://dialogflow.com/docs/reference/api-v2/rest/v2/projects.agent.intents/get)
+List all intents from an agent. [list](https://cloud.google.com/dialogflow/es/docs/reference/rest/v2/projects.agent.entityTypes/list)
 
 ```elixir
-get(project, id, languageCode \\ "es", intentView \\ "INTENT_VIEW_UNSPECIFIED")
-```
-
-Crea un intent. [(📘)](https://dialogflow.com/docs/reference/api-v2/rest/v2/projects.agent.intents/create)
-
-```elixir
-create(project, body, languageCode \\ "es")
-```
-
-Añade un frase de entrenamiento a un intent. [(📘)](https://dialogflow.com/docs/reference/api-v2/rest/v2/projects.agent.intents/patch)
-
-```elixir
-add_training_phrase(project, id, language \\ "es", text)
+list(language \\ "es", view \\ "INTENT_VIEW_UNSPECIFIED", pageSize \\ 100, token \\ nil)
 ```
 
 ### dialixir.Service.Sessions
