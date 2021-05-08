@@ -6,10 +6,7 @@ defmodule Dialixir.Application do
   use Application
 
   def start(_type, _args) do
-    import Supervisor.Spec, warn: false
-
-    credentials = "GOOGLE_CREDENTIALS" |> System.fetch_env!() |> Jason.decode!()
-    IO.inspect(credentials)
+    credentials = _google_credentials() |> File.read!() |> Jason.decode!()
     source = {:service_account, credentials, []}
 
     # Define workers and child supervisors to be supervised
@@ -21,7 +18,8 @@ defmodule Dialixir.Application do
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Dialixir.Supervisor]
-    Supervisor.start_link(children, opts)
+    Supervisor.start_link(children, strategy: :one_for_one)
   end
+
+  def _google_credentials(), do: Application.get_env(:dialixir, :google_credentials)
 end

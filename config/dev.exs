@@ -1,5 +1,4 @@
 use Mix.Config
 
-config :dialixir, host: System.get_env("DIALOGFLOW_URL")
-config :dialixir, project_id: System.get_env("DIALOGFLOW_PROJECT_ID")
-config :dialixir, client_email: System.get_env("CLIENT_EMAIL")
+config :dialixir, project_id: System.get_env("GOOGLE_CLOUD_PROJECT")
+config :dialixir, google_credentials: System.get_env("GOOGLE_APPLICATION_CREDENTIALS")
