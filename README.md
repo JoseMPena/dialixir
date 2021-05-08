@@ -10,7 +10,7 @@ Add dialixir to your mix file:
 ```elixir
 def deps do
   [
-    {:dialixir, "~> 1.0.0"}
+    {:dialixir, "~> 0.1.0"}
   ]
 end
 ```
