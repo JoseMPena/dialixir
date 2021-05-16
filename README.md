@@ -25,6 +25,13 @@ You *must* have the following environment variables in your project
 PROJECT_ID={your Google project ID}
 APPLICATION_CREDENTIALS={path to the json file with project credentials}
 
+You also need to have the proper configuration entries in your `config.exs` file
+```elixir
+config :dialixir, project_id: System.get_env("PROJECT_ID")
+config :dialixir, google_credentials: System.get_env("APPLICATION_CREDENTIALS")
+```
+
+
 ### Dialixir.Service.Agent
 
 Fetch the agent associated project_id. [getAgent](https://cloud.google.com/dialogflow/es/docs/reference/rest/v2/projects/getAgent)
