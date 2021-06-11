@@ -6,8 +6,7 @@ defmodule Dialixir.Application do
   use Application
 
   def start(_type, _args) do
-    credentials = _google_credentials() |> File.read!() |> Jason.decode!()
-    source = {:service_account, credentials, []}
+    source = {:service_account, credentials(), []}
 
     # Define workers and child supervisors to be supervised
     children = [
@@ -21,5 +20,5 @@ defmodule Dialixir.Application do
     Supervisor.start_link(children, strategy: :one_for_one)
   end
 
-  def _google_credentials(), do: Application.get_env(:dialixir, :google_credentials)
+  defp credentials(), do: Application.get_env(:dialixir, :google_credentials)
 end

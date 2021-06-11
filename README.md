@@ -21,14 +21,9 @@ mix deps.get
 ```
 
 ## How to use
-You *must* have the following environment variables in your project
-PROJECT_ID={your Google project ID}
-APPLICATION_CREDENTIALS={path to the json file with project credentials}
-
-You also need to have the proper configuration entries in your `config.exs` file
+You *must* have the proper configuration entries in your `config.exs` and or `prod.secret.exs` files
 ```elixir
-config :dialixir, project_id: System.get_env("PROJECT_ID")
-config :dialixir, google_credentials: System.get_env("APPLICATION_CREDENTIALS")
+config :dialixir, google_credentials: "map with contents of json credentials file"
 ```
 
 
