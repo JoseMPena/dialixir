@@ -23,11 +23,7 @@ mix deps.get
 ## How to use
 You *must* have the proper configuration entries in your `config.exs` and or `prod.secret.exs` files
 ```elixir
-<<<<<<< HEAD
 config :dialixir, google_credentials: "path to the json file with project credentials"
-=======
-config :dialixir, google_credentials: "map with contents of json credentials file"
->>>>>>> c28385f99362fe6dd34f725bca0f07ed04755716
 ```
 
 
