@@ -21,9 +21,9 @@ mix deps.get
 ```
 
 ## How to use
-You *must* have the proper configuration entries in your `config.exs` and or `prod.secret.exs` files
+You *must* have the google JSON credentials file inside the `priv/` directory, also, make sure to have the proper configuration entries in your `config.exs` and or `prod.secret.exs` files
 ```elixir
-config :dialixir, google_credentials: "path to the json file with project credentials"
+config :dialixir, google_credentials: Path.join(:code.priv_dir(:my_app), "/my/credentials/in/priv/folder")
 ```
 
 
