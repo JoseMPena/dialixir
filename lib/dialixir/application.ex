@@ -21,6 +21,6 @@ defmodule Dialixir.Application do
   end
 
   defp credentials() do
-    Application.get_env(:dialixir, :google_credentials)
+    Application.get_env(:dialixir, :google_credentials) |> Jason.decode!()
   end
 end
