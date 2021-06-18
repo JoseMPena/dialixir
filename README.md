@@ -21,7 +21,11 @@ mix deps.get
 ```
 
 ## How to use
-You *must* have the google JSON credentials file as `config/google_credentials.json`.
+You *must* have the following configuration in your project's config file:
+```elixir
+config :dialixir,
+  google_credentials: "contents of your GCP credentials json file or a way to read said file"
+```
 
 ### Dialixir.Service.Agent
 

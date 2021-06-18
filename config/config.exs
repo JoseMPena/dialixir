@@ -12,9 +12,6 @@ config :dialixir,
   cache_ttl: :timer.seconds(10),
   token_ttl: :timer.minutes(1)
 
-config :dialixir,
-  google_credentials: "config/google_credentials.json" |> Path.expand() |> File.read!()
-
 #
 
 # It is also possible to import configuration files, relative to this
