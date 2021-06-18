@@ -12,6 +12,7 @@ defmodule Dialixir.Application do
     children = [
       # Starts a worker by calling: Dialixir.Worker.start_link(arg1, arg2, arg3)
       # worker(Dialixir.Worker, [arg1, arg2, arg3]),
+      # {Cachex, name: Dialixir.Cachex},
       {Goth, name: Dialixir.Goth, source: source}
     ]
 
@@ -21,6 +22,6 @@ defmodule Dialixir.Application do
   end
 
   defp credentials() do
-    Application.get_env(:dialixir, :google_credentials) |> Jason.decode!()
+    Application.get_env(:dialixir, :google_credentials)
   end
 end

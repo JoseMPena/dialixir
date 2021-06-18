@@ -8,17 +8,13 @@ use Mix.Config
 # if you want to provide default values for your application for
 # 3rd-party users, it should be done in your "mix.exs" file.
 
-# You can configure your application as:
-#
-#     config :dialixir, key: :value
-#
-# and access this configuration in your application as:
-#
-#     Application.get_env(:dialixir, :key)
-#
-# You can also configure a 3rd-party app:
-#
-#     config :logger, level: :info
+config :dialixir,
+  cache_ttl: :timer.seconds(10),
+  token_ttl: :timer.minutes(1)
+
+config :dialixir,
+  google_credentials: "config/google_credentials.json" |> Path.expand() |> File.read!()
+
 #
 
 # It is also possible to import configuration files, relative to this
